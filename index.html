@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UK Postcodes API Explorer</title>
+  <link rel="stylesheet" href="https://mikehiggins.me.uk/postcode/style.css" />
+</head>
+<body>
+
+  <main style="margin-top:40px">
+    <!-- Page intro now shares the same container as the content -->
+    <header class="intro">
+      <h1>UK Postcodes API Explorer</h1>
+      <p>
+        Explore all of the data returned by the
+        <a href="https://postcodes.io" target="_blank" rel="noopener noreferrer">postcodes.io</a>
+        service. Enter a postcode, outcode, place name or coordinates and choose
+        an endpoint to view the rich geospatial and administrative information
+        available. Results are displayed below in expandable cards.
+      </p>
+    </header>
+
+    <!-- POSTCODE SECTION -->
+    <details open>
+      <summary><strong>Postcode Endpoints</strong></summary>
+      <div class="section">
+        <div class="form-group">
+          <label for="postcodeInput">Postcode:</label>
+          <input type="text" id="postcodeInput" placeholder="e.g. SW1A 1AA" />
+          <button id="lookupPostcodeBtn">Lookup</button>
+          <button id="validatePostcodeBtn">Validate</button>
+          <button id="autocompleteBtn">Autocomplete</button>
+          <button id="nearestPostcodeBtn">Nearest</button>
+          <button id="queryPostcodeBtn">Search</button>
+          <button id="randomPostcodeBtn">Random</button>
+        </div>
+        <div class="form-group">
+          <label for="bulkPostcodes">Bulk Lookup (up to 100 postcodes, one per line):</label>
+          <textarea id="bulkPostcodes" rows="3" placeholder="Enter one postcode per line"></textarea>
+          <button id="bulkLookupBtn">Bulk Lookup</button>
+        </div>
+      </div>
+    </details>
+
+    <!-- COORDINATES SECTION -->
+    <details>
+      <summary><strong>Coordinate Endpoints</strong></summary>
+      <div class="section">
+        <div class="form-group">
+          <label for="latitudeInput">Latitude:</label>
+          <input type="number" step="any" id="latitudeInput" placeholder="51.5074" />
+          <label for="longitudeInput">Longitude:</label>
+          <input type="number" step="any" id="longitudeInput" placeholder="-0.1278" />
+          <button id="reverseGeocodeBtn">Reverse Geocode</button>
+          <button id="reverseOutcodeBtn">Reverse Geocode Outcode</button>
+        </div>
+        <div class="form-group">
+          <label for="bulkGeo">Bulk Reverse Geocode (JSON array of objects):</label>
+          <textarea id="bulkGeo" rows="3" placeholder='[{"longitude":-0.1,"latitude":51.5},{"longitude":-2.3,"latitude":53.4,"radius":500,"limit":5}]'></textarea>
+          <button id="bulkReverseBtn">Bulk Reverse Geocode</button>
+        </div>
+      </div>
+    </details>
+
+    <!-- OUTCODE SECTION -->
+    <details>
+      <summary><strong>Outcode Endpoints</strong></summary>
+      <div class="section">
+        <div class="form-group">
+          <label for="outcodeInput">Outcode (first part of postcode):</label>
+          <input type="text" id="outcodeInput" placeholder="e.g. SW1A" />
+          <button id="lookupOutcodeBtn">Lookup Outcode</button>
+          <button id="nearestOutcodeBtn">Nearest Outcodes</button>
+        </div>
+      </div>
+    </details>
+
+    <!-- PLACE SECTION -->
+    <details>
+      <summary><strong>Place Endpoints</strong></summary>
+      <div class="section">
+        <div class="form-group">
+          <label for="placeCodeInput">Place OSGB Code:</label>
+          <input type="text" id="placeCodeInput" placeholder="e.g. osgb4000000074559209" />
+          <button id="lookupPlaceBtn">Lookup Place</button>
+        </div>
+        <div class="form-group">
+          <label for="placeQueryInput">Place Name Query:</label>
+          <input type="text" id="placeQueryInput" placeholder="e.g. London" />
+          <button id="queryPlaceBtn">Search Places</button>
+          <button id="randomPlaceBtn">Random Place</button>
+        </div>
+      </div>
+    </details>
+
+    <!-- TERMINATED POSTCODE SECTION -->
+    <details>
+      <summary><strong>Terminated Postcode Endpoint</strong></summary>
+      <div class="section">
+        <div class="form-group">
+          <label for="terminatedInput">Terminated Postcode:</label>
+          <input type="text" id="terminatedInput" placeholder="e.g. AB1 0AA" />
+          <button id="terminatedLookupBtn">Lookup Terminated</button>
+        </div>
+      </div>
+    </details>
+
+    <!-- SCOTTISH POSTCODE SECTION -->
+    <details>
+      <summary><strong>Scottish Postcode Endpoint</strong></summary>
+      <div class="section">
+        <div class="form-group">
+          <label for="scottishInput">Scottish Postcode:</label>
+          <input type="text" id="scottishInput" placeholder="e.g. EH1 2QZ" />
+          <button id="scottishLookupBtn">Lookup Scottish Postcode</button>
+        </div>
+      </div>
+    </details>
+
+    <!-- Results -->
+    <section id="results">
+      <!-- Results will be injected here dynamically -->
+    </section>
+  </main>
+
+  <script src="https://mikehiggins.me.uk/postcode/main.js"></script>
+</body>
+</html>
